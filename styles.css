@@ -1,0 +1,515 @@
+/* ============================================
+   ARCHITA DAS — SINGLE-PAGE EDITORIAL PORTFOLIO
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #0a0a0a;
+  --white: #fafafa;
+  --yellow: #FFE600;
+  --grid-line: rgba(0, 0, 0, 0.06);
+  --font-main: 'Space Grotesk', system-ui, sans-serif;
+  --font-hand: 'Caveat', cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  perspective: 1200px;
+}
+
+/* ---------- Page Container ---------- */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+}
+
+/* ---------- Top Bar ---------- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1.5px solid var(--black);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  z-index: 50;
+  margin: 0 -40px;
+  padding: 18px 40px;
+}
+
+.top-bar__name {
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.top-bar__nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  transition: color 0.25s;
+}
+
+.nav-link:hover {
+  color: var(--white);
+}
+
+.nav-link.active {
+  color: var(--white);
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding: 36px 0;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  border: none;
+  border-top: 1.5px solid var(--black);
+  margin: 0;
+}
+
+/* ---------- Typography ---------- */
+.heading-xl {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.heading-lg {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  margin-bottom: 14px;
+}
+
+.body-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ---------- Annotation ---------- */
+.annotation {
+  font-family: var(--font-hand);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1.2;
+}
+
+.annotation--yellow { color: #c5b200; }
+
+/* ---------- Circled Word ---------- */
+.circled {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.circled::after {
+  content: '';
+  position: absolute;
+  top: -5px; left: -10px; right: -10px; bottom: -4px;
+  border: 2.5px solid var(--yellow);
+  border-radius: 50% 42% 55% 38%;
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+/* ---------- Highlight ---------- */
+.highlight {
+  background: var(--yellow);
+  padding: 1px 5px;
+  font-weight: 600;
+}
+
+.highlight-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+/* ==================== HERO ==================== */
+.hero {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding-top: 40px;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  padding-top: 8px;
+}
+
+.hero-photo {
+  width: 200px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.hero-photo img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.photo-label {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  transform: rotate(-6deg);
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+/* ==================== STATS ==================== */
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.stat-row .stat-block:last-child {
+  grid-column: 1 / -1;
+}
+
+.stat-block {
+  background: var(--black);
+  color: var(--white);
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.stat-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--yellow);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ==================== PRESS TAGS ==================== */
+.press-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.press-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border: 1.5px solid var(--black);
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.press-tag--highlight {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+/* ==================== EXPERIENCE ITEMS ==================== */
+.experience-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.experience-item:last-of-type { border-bottom: none; }
+
+.experience-item .role {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.experience-item .org {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.experience-item .detail {
+  font-size: 12px;
+  color: #555;
+  margin-top: 3px;
+  line-height: 1.45;
+}
+
+/* ==================== TIMELINE ==================== */
+.timeline {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 18px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 4px; bottom: 4px;
+  width: 2px;
+  background: var(--black);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 6px 0 10px 14px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -22px; top: 12px;
+  width: 8px; height: 8px;
+  background: var(--yellow);
+  border-radius: 50%;
+  border: 2px solid var(--black);
+}
+
+.tl-year { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #999; }
+.tl-role { font-size: 13px; font-weight: 700; margin: 2px 0; }
+.tl-org { font-size: 11px; color: #555; }
+
+/* ==================== PROJECTS GRID ==================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.project-card {
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.project-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/* ==================== CONTACT ROW ==================== */
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.contact-item {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+.contact-icon {
+  width: 26px; height: 26px;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ==================== TRAITS ==================== */
+.traits-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.trait-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1.5px solid var(--black);
+  text-transform: uppercase;
+}
+
+.trait-tag:nth-child(odd) {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+/* ==================== CONNECT FORM ==================== */
+.connect-section {
+  background: var(--black);
+  color: var(--white);
+  margin: 0 -28px;
+  padding: 36px 28px;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.connect-heading { color: var(--white); }
+
+.connect-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.25s;
+  resize: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.22);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--yellow);
+}
+
+.connect-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--yellow), #e6d100);
+  color: var(--black);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,230,0,0.3);
+}
+
+.connect-btn:active { transform: translateY(0); }
+
+.connect-btn .btn-arrow {
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.connect-btn:hover .btn-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ==================== FOOTER ==================== */
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1.5px solid var(--black);
+  font-size: 11px;
+  font-weight: 500;
+  color: #999;
+}
+
+/* Nav dots hidden */
+.nav-dots { display: none; }
+
+/* ==================== Scroll Reveal (3D) ==================== */
+.section {
+  opacity: 0;
+  transform: translateY(30px) rotateX(3deg);
+  transform-origin: center bottom;
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 560px) {
+  .page { padding: 0 20px 30px; }
+  .heading-xl { font-size: 26px; }
+  .heading-lg { font-size: 20px; }
+  .hero { flex-direction: column; }
+  .hero-photo { width: 100%; max-width: 260px; }
+  .nav-dots { right: 8px; }
+  .connect-section { margin: 0 -20px; padding: 30px 20px; }
+}
